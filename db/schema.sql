@@ -1,0 +1,3 @@
+DROP DATABASE IF EXISTS greenThumb_db;
+
+CREATE DATABASE greenThumb_db;
