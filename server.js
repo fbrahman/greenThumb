@@ -10,6 +10,7 @@ const PORT = process.env.PORT || 3000;
 // Requiring our models for syncing
 // =============================================================
 const db = require('./models');
+const dbSeed = require('./seeds/plant_seeds');
 
 // Sets up the Express app to handle data parsing
 // =============================================================
@@ -40,4 +41,5 @@ db.sequelize.sync({ force: true }).then(function() {
   app.listen(PORT, function() {
     console.log("App listening on PORT " + PORT);
   });
+  dbSeed();
 });
