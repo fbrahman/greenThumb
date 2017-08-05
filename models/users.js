@@ -16,9 +16,6 @@ module.exports = function (sequelize, DataTypes) {
             type: DataTypes.STRING.BINARY, 
             allowNull:false,
             len:[1]
-        },
-        sessionid: {
-            type: DataTypes.UUID
         }
     });
     return Users;
