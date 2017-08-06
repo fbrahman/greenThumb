@@ -1,0 +1,18 @@
+.hero-banner .hero {
+	background-image: url(../images/garden.jpg);
+	background-size: cover;
+}
+
+.hero-body {
+
+font: bold;
+}
+
+.hero.is-dark .section {
+    background-color: transparent;
+   
+}
+
+.title is-1 {
+	font: bold;
+}
