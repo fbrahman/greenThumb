@@ -26,6 +26,11 @@ router.get('/dashboard', (req, res, next) => {
     res.render('dashboard');
 });
 
+//plant page
+router.get('/plant', (req, res, next) => {
+    res.render('plant');
+});
+
 //search
 router.get('/search',(req, res, next) => {
     let plantName = req.body.plantName;
