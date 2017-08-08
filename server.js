@@ -2,12 +2,14 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const exphbs = require('express-handlebars');
 const expressValidator = require('express-validator');
+const Sequelize = require('sequelize');
 
 
 //Authentication packages
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
 const passport = require('passport');
+const sequelizeStore = require('connect-session-sequelize')(session.Store)
 
 
 // Sets up the Express App
@@ -39,6 +41,21 @@ app.use(session({
 }));
 app.use(passport.initialize());
 app.use(passport.session());
+
+let sequelize = new Sequelize(
+"database",
+"username",
+"password", {
+    "dialect": "sqlite",
+    "storage": "./session.sqlite"
+});
+
+app.use(session({
+  secret: 'keyboard cat',
+  store: new SequelizeStore({
+    db: sequelize
+  }),
+}));
 
 // Set Handlebars as the default templating engine.
 // =============================================================
