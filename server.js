@@ -1,6 +1,14 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const exphbs = require('express-handlebars');
+const expressValidator = require('express-validator');
+
+
+//Authentication packages
+const session = require('express-session');
+const cookieParser = require('cookie-parser');
+const passport = require('passport');
+
 
 // Sets up the Express App
 // =============================================================
@@ -18,6 +26,19 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.text());
 app.use(bodyParser.json({ type: 'application/vnd.api+json' }));
+
+//Authentication setup
+// =============================================================
+app.use(cookieParser());
+app.use(expressValidator());
+app.use(session({
+  secret: 'sdlfkjdlajsdoijajk',
+  resave: false,
+  saveUninitialized: false,
+  // cookie: { secure: true }
+}));
+app.use(passport.initialize());
+app.use(passport.session());
 
 // Set Handlebars as the default templating engine.
 // =============================================================
