@@ -1,4 +1,12 @@
 <h1>Registration</h1>
+
+{{#if errors}}
+    {{#each errors}}
+        {{msg}}
+        <hr>
+    {{/each}}
+{{/if}}
+
 <form action="/registration/new" method="POST">
     <label for="username">Name</label>
     <input type="text" name="username">

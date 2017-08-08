@@ -31,6 +31,13 @@ router.get('/plant', (req, res, next) => {
     res.render('plant');
 });
 
+//favorites page
+router.get('/favorites', (req, res, next)=>{
+    console.log(req.user);
+    console.log(req.isAuthenticated());
+    res.render('favorites');
+});
+
 //search
 router.get('/search',(req, res, next) => {
     let plantName = req.body.plantName;
