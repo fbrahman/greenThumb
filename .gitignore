@@ -2,4 +2,4 @@
 .AppleDouble
 .LSOverride
 node_modules
-config.json
+config/config.json

@@ -9,7 +9,7 @@ const Sequelize = require('sequelize');
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
 const passport = require('passport');
-const sequelizeStore = require('connect-session-sequelize')(session.Store)
+const SequelizeStore = require('connect-session-sequelize')(session.Store)
 
 
 // Sets up the Express App
