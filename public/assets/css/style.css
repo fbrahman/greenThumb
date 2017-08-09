@@ -1,4 +1,4 @@
-.hero-banner .hero {
+/*.hero-banner .hero {
 	background-image: url(../images/garden.jpg);
 	background-size: cover;
 }
@@ -6,6 +6,12 @@
 .hero-body {
 
 font: bold;
+}*/
+
+#login {
+	background-image: url(../images/garden.jpg);
+	background-size: cover;
+	font: bold;
 }
 
 .hero.is-dark .section {
@@ -29,4 +35,23 @@ font: bold;
 /* Nav Bar CSS*/
 .logo {
 	
+}
+
+/*css for index page*/
+
+#index { 
+	background-image: url(../images/gardendig2.png);
+  	background-size: 100%;
+  	
+	
+
+ }
+
+.field .input {
+	
+	text-align: center;
+	background: rgba(255, 255, 255, 6.0);
+	width: 415px;
+	
+
 }
