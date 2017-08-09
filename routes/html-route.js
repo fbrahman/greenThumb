@@ -57,10 +57,7 @@ router.post('/search', (req, res, next) => {
                 results: data
             }
         }
-
-        // console.log(hbsObject);
-
-        res.render('results', hbsObject);
+        res.render('plant', hbsObject);
     });
 });
 
