@@ -11,7 +11,7 @@ let parser = csv.parse({
 });
  
 let inserter = async.cargo(function(tasks, inserterCallback) {
-    db.plants.bulkCreate(tasks).then(function() {
+    db.plants.bulkCreate(tasks,{logging:false}).then(function() {
         inserterCallback();
       }
     ).catch(err =>{console.log(err)});;

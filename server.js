@@ -9,7 +9,9 @@ const Sequelize = require('sequelize');
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
 const passport = require('passport');
-const SequelizeStore = require('connect-session-sequelize')(session.Store)
+const MySQLStore = require('express-mysql-session')(session);
+const LocalStrategy = require('passport-local').Strategy;
+const bcrypt = require('bcrypt');
 
 
 // Sets up the Express App
@@ -33,29 +35,26 @@ app.use(bodyParser.json({ type: 'application/vnd.api+json' }));
 // =============================================================
 app.use(cookieParser());
 app.use(expressValidator());
+
+let options = {
+  host: 'localhost',
+  port: 3306,
+  user: 'root',
+  password: 'password',
+  database: 'greenThumb_db'
+};
+
+let sessionStore = new MySQLStore(options);
+
 app.use(session({
   secret: 'sdlfkjdlajsdoijajk',
+  store: sessionStore,
   resave: false,
   saveUninitialized: false,
   // cookie: { secure: true }
 }));
 app.use(passport.initialize());
 app.use(passport.session());
-
-let sequelize = new Sequelize(
-"database",
-"username",
-"password", {
-    "dialect": "sqlite",
-    "storage": "./session.sqlite"
-});
-
-app.use(session({
-  secret: 'keyboard cat',
-  store: new SequelizeStore({
-    db: sequelize
-  }),
-}));
 
 // Set Handlebars as the default templating engine.
 // =============================================================
@@ -67,17 +66,53 @@ app.use(express.static('public'));
 
 // Routes
 // =============================================================
-let html = require('./routes/html-route.js');
-let registration = require('./routes/registration-route.js');
+let htmlRoute = require('./routes/html-route.js');
+let registrationRoute = require('./routes/registration-route.js');
 
-app.use('/', html);
-app.use('/', registration);
+app.use((req, res, next)=>{
+  res.locals.isAuthenticated = req.isAuthenticated();
+  next();
+})
+
+app.use('/', htmlRoute);
+app.use('/', registrationRoute);
+
+passport.use(new LocalStrategy(
+  function (username, password, done) {
+    console.log(username);
+    console.log(password);
+    db.users.findOne({
+      attributes: ['id','password'],
+      where: { username: username }
+    }).then((dbResult) => {
+      if(dbResult){
+        let hash = dbResult.password;
+        let userId = dbResult.id;
+
+        bcrypt.compare(password,hash,(err,response)=>{
+          console.log(response);
+          if (response){
+            console.log("password correct");
+            return done(null, {userId:userId});
+          } else {
+            console.log("password incorrect");
+            return done(null, false);
+          }
+        });
+      } else {
+        return done(null, false);
+      }
+    }).catch(err => {
+      done(err);
+    });
+  }
+));
 
 // Syncing our sequelize models and then starting our Express app
 // =============================================================
-db.sequelize.sync({ force: true }).then(function() {
-  app.listen(PORT, function() {
+db.sequelize.sync().then(function () {
+  app.listen(PORT, function () {
     console.log("App listening on PORT " + PORT);
   });
-  dbSeed();
+  // dbSeed();
 });

@@ -1,50 +1,60 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>GreenThumb</title>
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-		<link rel="stylesheet" id="bulma" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.3.2/css/bulma.min.css" />
-		<link rel="stylesheet" type="text/css" href="assets/css/style.css">
-	</head>
-	</body>
-	<!-- Global Navigation -->
-		<nav class="nav has-shadow" id="top">
-			<div class="container">
-			<div class="nav-left">
-				<a class="nav-item is-16x16" href="../index.html">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>GreenThumb</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+	<link rel="stylesheet" id="bulma" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.3.2/css/bulma.min.css" />
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+</head>
+</body>
+<!-- Global Navigation -->
+<nav class="nav has-shadow" id="top">
+	<div class="container">
+		<div class="nav-left">
+			<a class="nav-item is-16x16" href="../index.html">
 				<img src="../assets/images/logo.png" alt="logo"> GreenThumb
 				</a>
-			</div>
-			<span class="nav-toggle">
+		</div>
+		<span class="nav-toggle">
 				<span></span>
-				<span></span>
-				<span></span>
-			</span>
-			<div class="nav-right nav-menu">
-				<a class="nav-item is-tab is-active" href="index">
+		<span></span>
+		<span></span>
+		</span>
+		<div class="nav-right nav-menu">
+			<a class="nav-item is-tab is-active" href="index">
 					Home
-				</a>
+			</a> 
+			{{#if isAuthenticated}}
 				<a class="nav-item is-tab" href="favorites">
 					Favorites
-				</a>
-				<a class="nav-item is-tab" href="about">
+				</a> 
+			{{/if}}
+			<a class="nav-item is-tab" href="about">
 					About
-				</a>
-				<span class="nav-item">
-				<a class="button">
-					Log in
-				</a>
-				<a class="button is-info">
-					Sign up
-				</a>
-				</span>
-			</div>
-			</div>
-		</nav>
-	<!-- Global Navigation-->
-	{{{ body }}}
-	</body>
+			</a>
+			<span class="nav-item">
+				{{#if isAuthenticated}}
+					<a class="button" href="logout">
+						Log out
+					</a>
+				{{else}}
+					<a class="button" href="login">
+						Log in
+					</a>
+					<a class="button is-info" href="registration">
+						Sign up
+					</a>
+				{{/if}}
+			</span>
+		</div>
+	</div>
+</nav>
+<!-- Global Navigation-->
+{{{ body }}}
+</body>
+
 </html>

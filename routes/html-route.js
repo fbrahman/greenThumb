@@ -32,26 +32,36 @@ router.get('/plant', (req, res, next) => {
 });
 
 //favorites page
-router.get('/favorites', (req, res, next)=>{
+router.get('/favorites', authenticationMiddleware(), (req, res, next) => {
     console.log(req.user);
     console.log(req.isAuthenticated());
     res.render('favorites');
 });
 
 //search
-router.get('/search',(req, res, next) => {
+router.get('/search', (req, res, next) => {
     let plantName = req.body.plantName;
     db.plants.findAll({
         where: {
             name: plantName
         }
-    }).then(function(data) {
+    }).then(function (data) {
         let hbsObject = {
             results: data
         }
-    res.render('results', hbsObject);
+        res.render('results', hbsObject);
     });
 });
+
+//authentication check middleware
+function authenticationMiddleware() {
+    return (req, res, next) => {
+        console.log(`req.session.passport.user: ${JSON.stringify(req.session.passport)}`);
+
+        if (req.isAuthenticated()) return next();
+        res.redirect('/login')
+    }
+}
 
 module.exports = router;
 
