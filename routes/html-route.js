@@ -38,7 +38,7 @@ router.get('/favorites', authenticationMiddleware(), (req, res, next) => {
 });
 
 //search
-router.get('/search', (req, res, next) => {
+router.post('/search', (req, res, next) => {
     console.log(req.body);
     let plantName = req.body.plantName;
     db.plants.findAll({
@@ -46,8 +46,16 @@ router.get('/search', (req, res, next) => {
             name: plantName
         }
     }).then(function (data) {
-        let hbsObject = {
-            results: data
+        let hbsObject = {};
+        if (data.length === 1) {
+            console.log("data:", data[0]);
+            hbsObject = {
+                results: data[0]
+            }
+        } else {
+            hbsObject = {
+                results: data
+            }
         }
         res.render('plant', hbsObject);
     });

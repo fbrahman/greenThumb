@@ -1,4 +1,4 @@
-<h1>Registration</h1>
+{{!-- <h1>Registration</h1> --}}
 
 {{#if errors}}
     {{#each errors}}
@@ -7,7 +7,7 @@
     {{/each}}
 {{/if}}
 
-<form action="/registration/new" method="POST">
+{{!-- <form action="/registration/new" method="POST">
     <label for="username">Name</label>
     <input type="text" name="username">
     <label for="email">Email</label>
@@ -17,4 +17,38 @@
     <label for="confirmPassword">Confirm Password</label>
     <input type="text" name="confirmPassword">
     <button type="submit">Submit</button>
-</form>
+</form> --}}
+
+<div id="vegetables">
+
+<form action="#" method="post">
+  <h2>Sign Up</h2>
+    <p>
+      <label for="Email" class="floatLabel">Email</label>
+      <input id="Email" name="Email" type="text">
+    </p>
+    <p>
+      <label for="password" class="floatLabel">Password</label>
+      <input id="password" name="password" type="password">
+      <span>Enter a password longer than 8 characters</span>
+    </p>
+    <p>
+      <label for="confirm_password" class="floatLabel">Confirm Password</label>
+      <input id="confirm_password" name="confirm_password" type="password">
+      <span>Your passwords do not match</span>
+    </p>
+    <p>
+      <input type="submit" value="Create My Account" id="submit">
+    </p>
+  </form>
+
+
+
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+
+<script type="text/javascript" src="assets/js/logic.js"></script>
+
+</div>
+
+
+
