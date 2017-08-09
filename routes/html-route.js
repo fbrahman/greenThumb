@@ -3,7 +3,6 @@
 const express = require('express');
 
 const router = express.Router();
-
 const db = require("../models");
 
 //landing page
@@ -40,6 +39,7 @@ router.get('/favorites', authenticationMiddleware(), (req, res, next) => {
 
 //search
 router.get('/search', (req, res, next) => {
+    console.log(plantName);
     let plantName = req.body.plantName;
     db.plants.findAll({
         where: {
