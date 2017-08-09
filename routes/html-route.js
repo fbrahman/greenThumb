@@ -39,7 +39,7 @@ router.get('/favorites', authenticationMiddleware(), (req, res, next) => {
 
 //search
 router.get('/search', (req, res, next) => {
-    console.log(plantName);
+    console.log(req.body);
     let plantName = req.body.plantName;
     db.plants.findAll({
         where: {
@@ -49,7 +49,7 @@ router.get('/search', (req, res, next) => {
         let hbsObject = {
             results: data
         }
-        res.render('results', hbsObject);
+        res.render('plant', hbsObject);
     });
 });
 
