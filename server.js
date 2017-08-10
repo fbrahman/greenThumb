@@ -66,8 +66,12 @@ let hbs = exphbs.create({
         this._sections[name] = options.fn(this);
         return null;
     },
-    plantImg: function(path){
-        return "/plant/" + path;
+    plantImg: function(img){
+        return "/plant/" + img;
+    }, 
+    plantSearch: function(name){
+      let formattedName = name.replace(/\s/, '+');
+      return "/search?plantName=" + formattedName;
     }
   }
 })
