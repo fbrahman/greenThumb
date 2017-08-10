@@ -25,9 +25,9 @@ router.get('/dashboard', (req, res, next) => {
     res.render('dashboard');
 });
 
-//plant page
-router.get('/plant', (req, res, next) => {
-    res.render('plant');
+//results page
+router.get('/results', (req, res, next) => {
+    res.render('results');
 });
 
 //favorites page
@@ -50,13 +50,12 @@ router.get('/search', (req, res, next) => {
     }).then(function (data) {
         let hbsObject = {};
         if (data.length === 1) {
-            // console.log("data:", data[0]);
             hbsObject = {
                 results: data[0]
             }
             res.render('plant', hbsObject);
         } else {
-            console.log("lots of results");
+            console.log("Number of results: ", data.length);
             hbsObject = {
                 results: data
             }
