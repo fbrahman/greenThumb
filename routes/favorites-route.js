@@ -13,6 +13,10 @@ router.get('/favorites', authenticationMiddleware(), (req, res, next) => {
     res.render('favorites');
 });
 
+// router.get('/favorites/add', (req, res,next) => {
+//     console.log(req.)
+// })
+
 //authentication check middleware
 // =============================================================
 function authenticationMiddleware() {
