@@ -1,13 +1,9 @@
 module.exports = function (sequelize, DataTypes) {
-    let Favorites = sequelize.define("favorites", {
-        userID: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-        },
-        plantID: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-        }
-    });
+    let Favorites = sequelize.define("favorites", {});
+
+    // Favorites.associate = function(models){
+    //     Favorites.belongsTo(models.User);
+    //     Favorites.belongsTo(models.Plants);
+    // }
     return Favorites;
 };

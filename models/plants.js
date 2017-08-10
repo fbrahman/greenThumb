@@ -54,5 +54,10 @@ module.exports = function (sequelize, DataTypes) {
       type:DataTypes.STRING
     }
   });
+
+  // Plants.associate = function(models){
+  //   Plants.hasMany(models.Favorites);
+  // };
+
   return Plants;
 };

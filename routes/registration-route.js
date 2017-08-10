@@ -48,19 +48,6 @@ router.post('/registration/new', (req, res, next) => {
     });
 });
 
-//login user
-router.post('/login', passport.authenticate('local',{
-    successRedirect:'/favorites',
-    failureRedirect:'/login'
-}));
-
-//logout user
-router.get('/logout', (req, res)=>{
-    req.logout();
-    req.session.destroy();
-    res.redirect('/');
-})
-
 passport.serializeUser(function (user, done) {
     done(null, user);
 });
@@ -68,7 +55,5 @@ passport.serializeUser(function (user, done) {
 passport.deserializeUser(function (user, done) {
     done(null, user);
 });
-
-
 
 module.exports = router;
