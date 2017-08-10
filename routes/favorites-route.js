@@ -13,9 +13,21 @@ router.get('/favorites', authenticationMiddleware(), (req, res, next) => {
     res.render('favorites');
 });
 
-// router.get('/favorites/add', (req, res,next) => {
-//     console.log(req.)
-// })
+//add a favorite for the user
+// =============================================================
+router.post('/favorites/add', (req, res,next) => {
+    let userId = req.user.id;
+    let plantId = req.body.plantID;
+    db.favorites.findOrCreate({where:{userId:userId, plantId:plantId}})
+        .then((dbFavorite)=>{
+            console.log(dbFavorite);
+            res.redirect('back');
+        })
+});
+
+router.delete('/favorites/remove', (req, res, next)=>{
+
+})
 
 //authentication check middleware
 // =============================================================

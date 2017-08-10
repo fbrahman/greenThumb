@@ -21,14 +21,14 @@ router.get('/search', (req, res, next) => {
         if (data.length === 1) {
             hbsObject = {
                 results: data[0], 
-                searchTerm: plantName
             }
             res.render('plant', hbsObject);
         } else {
             console.log("Number of results: ", data.length);
             hbsObject = {
                 results: data, 
-                searchTerm: plantName
+                searchTerm: plantName, 
+                resultCount: data.length
             }
             res.render('results', hbsObject);
         }

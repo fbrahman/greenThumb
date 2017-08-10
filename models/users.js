@@ -19,9 +19,9 @@ module.exports = function (sequelize, DataTypes) {
         }
     });
 
-    // Users.associate = function(models){
-    //     Users.hasMany(models.Favorites);
-    // };
+    Users.associate = function(models){
+        Users.hasMany(models.favorites);
+    };
 
     return Users;
 };
