@@ -38,9 +38,9 @@ router.get('/favorites', authenticationMiddleware(), (req, res, next) => {
 });
 
 //search
-router.post('/search', (req, res, next) => {
-    console.log(req.body);
-    let plantName = req.body.plantName;
+router.get('/search', (req, res, next) => {
+    console.log(req.query);
+    let plantName = req.query.plantName;
     db.plants.findAll({
         where: {
             name: {
