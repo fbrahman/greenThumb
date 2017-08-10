@@ -65,6 +65,9 @@ let hbs = exphbs.create({
         if(!this._sections) this._sections = {};
         this._sections[name] = options.fn(this);
         return null;
+    },
+    plantImg: function(path){
+        return "/plant/" + path;
     }
   }
 })
@@ -73,6 +76,7 @@ app.set("view engine", "handlebars");
 
 // Static directory
 app.use(express.static('public'));
+app.use('/plant', express.static(__dirname + '/public/assets/images/vegetable_photos'));
 
 // Routes
 // =============================================================
@@ -124,5 +128,6 @@ db.sequelize.sync().then(function () {
   app.listen(PORT, function () {
     console.log("App listening on PORT " + PORT);
   });
+  //Uncomment to seed plants table in local db
   // dbSeed();
 });

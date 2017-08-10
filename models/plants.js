@@ -49,6 +49,9 @@ module.exports = function (sequelize, DataTypes) {
     },
     storage_use: {
       type: DataTypes.TEXT
+    },
+    image:{
+      type:DataTypes.STRING
     }
   });
   return Plants;
