@@ -43,21 +43,25 @@ router.post('/search', (req, res, next) => {
     let plantName = req.body.plantName;
     db.plants.findAll({
         where: {
-            name: plantName
+            name: {
+                $like: `%${plantName}%`
+            }
         }
     }).then(function (data) {
         let hbsObject = {};
         if (data.length === 1) {
-            console.log("data:", data[0]);
+            // console.log("data:", data[0]);
             hbsObject = {
                 results: data[0]
             }
+            res.render('plant', hbsObject);
         } else {
+            console.log("lots of results");
             hbsObject = {
                 results: data
             }
+            res.render('results', hbsObject);
         }
-        res.render('plant', hbsObject);
     });
 });
 

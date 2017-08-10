@@ -58,7 +58,17 @@ app.use(passport.session());
 
 // Set Handlebars as the default templating engine.
 // =============================================================
-app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+let hbs = exphbs.create({
+  defaultLayout:'main',
+  helpers: {
+    section: function(name, options){
+        if(!this._sections) this._sections = {};
+        this._sections[name] = options.fn(this);
+        return null;
+    }
+  }
+})
+app.engine("handlebars", hbs.engine);
 app.set("view engine", "handlebars");
 
 // Static directory
@@ -69,7 +79,7 @@ app.use(express.static('public'));
 let htmlRoute = require('./routes/html-route.js');
 let registrationRoute = require('./routes/registration-route.js');
 
-app.use((req, res, next)=>{
+app.use((req, res, next) => {
   res.locals.isAuthenticated = req.isAuthenticated();
   next();
 })
@@ -82,18 +92,18 @@ passport.use(new LocalStrategy(
     console.log(username);
     console.log(password);
     db.users.findOne({
-      attributes: ['id','password'],
+      attributes: ['id', 'password'],
       where: { username: username }
     }).then((dbResult) => {
-      if(dbResult){
+      if (dbResult) {
         let hash = dbResult.password;
         let userId = dbResult.id;
 
-        bcrypt.compare(password,hash,(err,response)=>{
+        bcrypt.compare(password, hash, (err, response) => {
           console.log(response);
-          if (response){
+          if (response) {
             console.log("password correct");
-            return done(null, {userId:userId});
+            return done(null, { userId: userId });
           } else {
             console.log("password incorrect");
             return done(null, false);
