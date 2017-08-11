@@ -49,7 +49,15 @@ module.exports = function (sequelize, DataTypes) {
     },
     storage_use: {
       type: DataTypes.TEXT
+    },
+    image:{
+      type:DataTypes.STRING
     }
   });
+
+  // Plants.associate = function(models){
+  //   Plants.hasMany(models.Favorites);
+  // };
+
   return Plants;
 };

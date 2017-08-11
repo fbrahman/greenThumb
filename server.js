@@ -1,18 +1,19 @@
+// Dependencies
+// =============================================================
 const express = require('express');
 const bodyParser = require('body-parser');
 const exphbs = require('express-handlebars');
 const expressValidator = require('express-validator');
 const Sequelize = require('sequelize');
 
-
 //Authentication packages
+// =============================================================
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
 const passport = require('passport');
 const MySQLStore = require('express-mysql-session')(session);
 const LocalStrategy = require('passport-local').Strategy;
 const bcrypt = require('bcrypt');
-
 
 // Sets up the Express App
 // =============================================================
@@ -65,6 +66,13 @@ let hbs = exphbs.create({
         if(!this._sections) this._sections = {};
         this._sections[name] = options.fn(this);
         return null;
+    },
+    plantImg: function(img){
+        return "/plant/" + img;
+    }, 
+    plantSearch: function(name){
+      let formattedName = name.replace(/\s/, '+');
+      return "/search?plantName=" + formattedName;
     }
   }
 })
@@ -73,11 +81,15 @@ app.set("view engine", "handlebars");
 
 // Static directory
 app.use(express.static('public'));
+app.use('/plant', express.static(__dirname + '/public/assets/images/vegetable_photos'));
 
 // Routes
 // =============================================================
 let htmlRoute = require('./routes/html-route.js');
 let registrationRoute = require('./routes/registration-route.js');
+let loginRoute = require('./routes/login-route.js');
+let favoritesRoute = require('./routes/favorites-route.js');
+let searchRoute = require('./routes/search-route.js');
 
 app.use((req, res, next) => {
   res.locals.isAuthenticated = req.isAuthenticated();
@@ -86,7 +98,12 @@ app.use((req, res, next) => {
 
 app.use('/', htmlRoute);
 app.use('/', registrationRoute);
+app.use('/', loginRoute);
+app.use('/', favoritesRoute);
+app.use('/', searchRoute);
 
+//passport login check
+// =============================================================
 passport.use(new LocalStrategy(
   function (username, password, done) {
     console.log(username);
@@ -124,5 +141,6 @@ db.sequelize.sync().then(function () {
   app.listen(PORT, function () {
     console.log("App listening on PORT " + PORT);
   });
+  //Uncomment to seed plants table in local db
   // dbSeed();
 });

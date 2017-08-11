@@ -27,7 +27,7 @@ parser.on('readable', function () {
  
 parser.on('end', function (count) {
   inserter.drain = function() {
-    doneLoadingCallback();
+    // doneLoadingCallback();
   }
 });
  

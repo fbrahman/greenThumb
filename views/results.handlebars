@@ -4,7 +4,7 @@
   <div class="hero-body">
     <div class="container">
       <h1 class="title">
-        Your Results
+        {{resultCount}} results were returned for "{{searchTerm}}".
       </h1>
       <h2 class="subtitle">
 
@@ -19,9 +19,9 @@
   {{#each results}}
     <div class="tile is-parent">
       <article class="tile is-child box">
-        <p class="title">{{name}}</p>
+        <a class="title" href={{plantSearch name}}>{{name}}</a>
         <figure class="image is-4by3">
-          <img src="https://www.organicfacts.net/wp-content/uploads/2013/05/watermelon2.jpg">
+          <img src={{plantImg image}}>
         </figure>
       </article>
     </div>

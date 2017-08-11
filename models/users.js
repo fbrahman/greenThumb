@@ -18,5 +18,10 @@ module.exports = function (sequelize, DataTypes) {
             len:[1]
         }
     });
+
+    Users.associate = function(models){
+        Users.hasMany(models.favorites);
+    };
+
     return Users;
 };
