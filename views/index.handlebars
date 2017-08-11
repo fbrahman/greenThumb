@@ -1,4 +1,10 @@
-<section class="hero is-fullheight is-dark">
+{{#section 'head'}}
+  <link rel="stylesheet" href="assets/css/style.css">
+{{/section}}
+
+
+
+<section class="hero is-fullheight">
   <div class="hero-body" id="index">
     <div class="column"></div>
     <div class="column">
@@ -7,7 +13,7 @@
           <form action="/search" method="GET">
             <button class="button is-success is-medium" style="float: right">Go</button>
             <div style="overflow: hidden; padding-right: .5em;">
-              <input class="input is-medium" type="text" placeholder="What do you want to grow?" name="plantName">
+              <input class="input is-success is-medium" type="text" placeholder="What do you want to grow?" name="plantName">
             </div>
           </form>
         </div>
