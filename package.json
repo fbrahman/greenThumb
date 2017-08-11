@@ -1,6 +1,9 @@
 {
   "name": "greenthumb",
   "version": "1.0.0",
+  "engines":{
+    "node":"8.1.1"
+  },
   "description": "Project_2",
   "main": "index.js",
   "scripts": {
