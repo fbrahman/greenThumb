@@ -29,15 +29,24 @@ router.get('/favorites', authenticationMiddleware(), (req, res, next) => {
 router.post('/favorites/add', (req, res,next) => {
     let userId = req.user.userId;
     let plantId = req.body.plantID;
-    db.favorites.findOrCreate({where:{userId:userId, plantId:plantId}})
-        .then((dbFavorite)=>{
+    db.favorites.findOrCreate({
+        where:{
+            userId:userId, 
+            plantId:plantId
+            }
+        }).then((dbFavorite)=>{
             console.log(dbFavorite);
             res.redirect('back');
         })
 });
 
 router.delete('/favorites/remove', (req, res, next)=>{
-
+    console.log("in delete", req.body);
+    db.favorites.destroy({
+        where:req.body
+    }).then((dbResults)=>{
+        res.redirect('back');
+    })
 })
 
 //authentication check middleware

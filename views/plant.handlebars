@@ -9,18 +9,32 @@ or alert to tell the user to login --}}
                 <div class="tile is-parent is-bold">
                     <article class="tile is-child notification white">
                         <p class="title is-1" style="display: inline-block;">{{results.name}} </p>
-                        {{#if isAuthenticated}}
-                            <form action="/favorites/add" method="POST" class="favForm">
-                                <input type="hidden" name="plantID" value={{results.id}}>
-                                <button class="favButton" type="submit">
-                                    <a class="button is-success">
-                                        <span class="icon is-small">
-                                        <i class="fa fa-heart"></i>
-                                        </span>
-                                        <span> Favorite</span>
-                                    </a>
-                                </button>
-                            </form>
+                        {{#if isAuthenticated}} 
+                            {{#if isFav}}
+                                <form action="/favorites/remove?_method=DELETE" method="POST" class="favForm">
+                                    <input type="hidden" name="id" value={{favId}}>
+                                    <button class="favButton" type="submit">
+                                        <a class="button is-success">
+                                            <span class="icon is-small">
+                                            <i class="fa fa-heart"></i>
+                                            </span>
+                                            <span> UnFavorite</span>
+                                        </a>
+                                    </button>
+                                </form>
+                            {{else}}
+                                <form action="/favorites/add" method="POST" class="favForm">
+                                    <input type="hidden" name="plantID" value={{results.id}}>
+                                    <button class="favButton" type="submit">
+                                        <a class="button is-success">
+                                            <span class="icon is-small">
+                                            <i class="fa fa-heart"></i>
+                                            </span>
+                                            <span> Favorite</span>
+                                        </a>
+                                    </button>
+                                </form>
+                            {{/if}} 
                         {{/if}}
                         <p class="subtitle">{{results.description}}</p>
                     </article>

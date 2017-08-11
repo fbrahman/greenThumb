@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 const exphbs = require('express-handlebars');
 const expressValidator = require('express-validator');
 const Sequelize = require('sequelize');
+const methodOverride = require('method-override');
 
 //Authentication packages
 // =============================================================
@@ -31,6 +32,10 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.text());
 app.use(bodyParser.json({ type: 'application/vnd.api+json' }));
+
+//Initiate method override 
+// =============================================================
+app.use(methodOverride("_method"));
 
 //Authentication setup
 // =============================================================

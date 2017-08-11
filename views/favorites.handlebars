@@ -27,31 +27,27 @@
   </div>
 </div>
 
-
-{{#each fav}}
-<section>
-  <div class="container">
-    <div class="column is-4">
-        <div class="card">
-          <div class="card-image">
-            <figure class="image is-4by3">
-              <img src={{plantImg plant.image}} alt="Image" >
-            </figure>
+<div class="container section">
+  <div class="columns is-multiline">
+    {{#each fav}}
+    <div class="column is-one-third" >
+      <div class="tile is-ancestor">
+          <div class="tile is-parent">
+            <article class="tile is-child box">
+              <a class="title is-3" href={{plantSearch plant.name}}>
+                <figure class="image resultImage">
+                <img src={{plantImg plant.image}}>
+                </figure>
+                {{plant.name}}
+              </a>
+            </article>
           </div>
-          <div class="card-content">
-            <div>
-              <div>
-                <a class="title is-3" href={{plantSearch plant.name}}>
-                  {{plant.name}}
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
+      </div>
     </div>
+    {{/each}}
   </div>
-</section>
-{{/each}}
+</div>
+
 
 
 
