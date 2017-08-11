@@ -13,7 +13,7 @@ const saltRounds = 10;
 
 //create new user
 router.post('/registration/new', (req, res, next) => {
-    console.log(req.body);
+    // console.log(req.body);
     //validation rules for registration fields
     req.checkBody('username', 'Username field cannot be empty.').notEmpty();
     req.checkBody('username', 'Username must be between 4-15 characters long.').len(4, 15);
@@ -26,8 +26,8 @@ router.post('/registration/new', (req, res, next) => {
 
     req.getValidationResult().then((results) => {
         const errors = results.array();
-        console.log(`errors: ${JSON.stringify(errors)}`);
-        console.log(results.isEmpty());
+        // console.log(`errors: ${JSON.stringify(errors)}`);
+        // console.log(results.isEmpty());
         if (!results.isEmpty()) {
             console.log("errors exist");
             res.render('registration', { errors: errors })
