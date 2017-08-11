@@ -28,23 +28,22 @@
 </div>
 
 
-{{!--{{#each fav}}--}}
+{{#each fav}}
 <section>
   <div class="container">
     <div class="column is-4">
         <div class="card">
           <div class="card-image">
             <figure class="image is-4by3">
-              {{this.image}}
-              <img src="http://bulma.io/images/placeholders/1280x960.png" alt="Image" >
+              <img src={{plantImg plant.image}} alt="Image" >
             </figure>
           </div>
           <div class="card-content">
             <div>
               <div>
-                <a class="title is-3" href="#">
-                  {{this.name}}
-                  Watermelon</a>
+                <a class="title is-3" href={{plantSearch plant.name}}>
+                  {{plant.name}}
+                </a>
               </div>
             </div>
           </div>
@@ -52,7 +51,7 @@
     </div>
   </div>
 </section>
-{{!--{{/each}}--}}
+{{/each}}
 
 
 

@@ -55,9 +55,9 @@ module.exports = function (sequelize, DataTypes) {
     }
   });
 
-  // Plants.associate = function(models){
-  //   Plants.hasMany(models.Favorites);
-  // };
+  Plants.associate = function(models){
+    Plants.hasMany(models.favorites);
+  };
 
   return Plants;
 };

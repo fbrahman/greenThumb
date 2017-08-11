@@ -22,6 +22,22 @@ router.get('/search', (req, res, next) => {
             hbsObject = {
                 results: data[0], 
             }
+            
+            // let plantData = data[0];
+            // let favData = data[0].favorites;
+            // let isFav = false;
+            // let userId = req.user.userId;
+    
+            // for(let i = 0; i < favData.length; i++){
+            //     if(favData[i].userId === userId){
+            //         isFav = true
+            //     }
+            // }
+            
+            // console.log(data[0].favorites.length);
+            // console.log(JSON.stringify(data));
+            // console.log("isFav: ", isFav);
+            
             res.render('plant', hbsObject);
         } else {
             console.log("Number of results: ", data.length);
