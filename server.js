@@ -43,6 +43,7 @@ app.use(cookieParser());
 app.use(expressValidator());
 
 let options = 
+//for heroku
 {
   host: 'mna97msstjnkkp7h.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
   port: 3306,
@@ -50,6 +51,8 @@ let options =
   password: 'h9rtxnhtk54qpult',
   database: 'k1afzp5oa9g58g9k'
 };
+
+//uncomment for local use
 // {
 //   host: 'localhost',
 //   port: 3306,
