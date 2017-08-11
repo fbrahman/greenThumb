@@ -8,19 +8,18 @@ or alert to tell the user to login --}}
             <div class="tile is-vertical is-8">
                 <div class="tile is-parent is-bold">
                     <article class="tile is-child notification white">
-                        <p class="title is-1">{{results.name}}
-                            <form action="/favorites/add" method="POST">
-                                <input type="hidden" name="plantID" value={{results.id}}>
-                                <button class="favButton" type="submit">
-                                        <a class="button is-success is-pulled-right">
-                                            <span class="icon is-small">
-                                            <i class="fa fa-heart"></i>
-                                            </span>
-                                            <span> Favorites</span>
-                                        </a>
-                                    </button>
-                            </form>
-                        </p>
+                        <p class="title is-1" style="display: inline-block;">{{results.name}} </p>
+                        <form action="/favorites/add" method="POST" class="favForm">
+                            <input type="hidden" name="plantID" value={{results.id}}>
+                            <button class="favButton" type="submit">
+                                <a class="button is-success">
+                                    <span class="icon is-small">
+                                    <i class="fa fa-heart"></i>
+                                    </span>
+                                    <span> Favorite</span>
+                                </a>
+                            </button>
+                        </form>
                         <p class="subtitle">{{results.description}}</p>
                     </article>
                 </div>
