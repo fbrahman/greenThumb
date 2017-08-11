@@ -25,6 +25,11 @@ router.get('/results', (req, res, next) => {
     res.render('results');
 });
 
+//temp dashboard page
+router.get('/dashboard', (req, res, next) => {
+    res.render('dashboard');
+});
+
 module.exports = router;
 
 
