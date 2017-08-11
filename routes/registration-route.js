@@ -13,7 +13,7 @@ const saltRounds = 10;
 
 //create new user
 router.post('/registration/new', (req, res, next) => {
-
+    console.log(req.body);
     //validation rules for registration fields
     req.checkBody('username', 'Username field cannot be empty.').notEmpty();
     req.checkBody('username', 'Username must be between 4-15 characters long.').len(4, 15);
