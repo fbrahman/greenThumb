@@ -53,3 +53,9 @@ h3 {
 .button.is-link {
 	text-decoration: none;
 	}
+
+/* results page*/
+.resultImage {
+	overflow: hidden;
+	height: 200px;
+}
