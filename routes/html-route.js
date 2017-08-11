@@ -25,7 +25,8 @@ router.get('/results', (req, res, next) => {
     res.render('results');
 });
 
-router.get('/dashboard', (req,res,next)=>{
+//temp dashboard page
+router.get('/dashboard', (req, res, next) => {
     res.render('dashboard');
 });
 

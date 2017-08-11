@@ -7,7 +7,7 @@
       </figure>--}}
       <div class="column is-half is-offset-one-quarter">
         <div class="control">
-          <form action="/search" method="POST">
+          <form action="/search" method="GET">
             <button class="button is-success is-medium has-addons" style="float: right">Go</button>
             <div style="overflow: hidden; padding-right: .5em;">
               <input class="input is-medium" type="text" placeholder="What do you want to grow?" name="plantName">
@@ -28,30 +28,26 @@
 </div>
 
 
-{{#each fav}}
-<section>
-  <div class="container">
-    <div class="column is-4">
-        <div class="card">
-          <div class="card-image">
-            <figure class="image is-4by3">
-              <img src={{plantImg plant.image}} alt="Image" >
-            </figure>
+<div class="container section">
+  <div class="columns is-multiline">
+    {{!--{{#each fav}}--}}
+    <div class="column is-one-third" >
+      <div class="tile is-ancestor">
+          <div class="tile is-parent">
+            <article class="tile is-child box">
+              <a class="title is-3" href={{fav name}}>
+                <figure class="image resultImage">
+                <img src={{fav image}}>
+                </figure>
+                {{name}}
+              </a>
+            </article>
           </div>
-          <div class="card-content">
-            <div>
-              <div>
-                <a class="title is-3" href={{plantSearch plant.name}}>
-                  {{plant.name}}
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
+      </div>
     </div>
+    {{!--{{/each fav}}--}}
   </div>
-</section>
-{{/each}}
+</div>
 
 
 
