@@ -6,10 +6,10 @@
 	font: bold;
 }
 
-.hero.is-dark .section {
+/*.hero.is-dark .section {
     background-color: transparent;
    
-}
+}*/
 
 .title is-1 {
 	font: bold;
@@ -25,13 +25,15 @@
 }
 
 /* Nav Bar CSS*/
-.logo {
+h3 {
+	color: green;
+	text-shadow: grey:;
 	
 }
 
 /*css for index page*/
 #index { 
-	background-image: url(../images/gardendig2.png);
+	background-image: url(../images/gardendig.jpg);
   	background-size: 100%;
  }
 
@@ -42,7 +44,7 @@
 	width: 415px;
 }
 
- favorites page
+ /*favorites page*/
 .button.is-link {
 	text-decoration: none;
 	}

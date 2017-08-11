@@ -1,4 +1,76 @@
-<div class="login-wrapper columns">
+{{#section 'head'}}
+  <link rel="stylesheet" href="assets/css/registrationStyle.css">
+{{/section}}
+
+
+{{!-- {{#section 'head'}}
+  <link rel="stylesheet" href="assets/css/registrationStyle.css">
+{{/section}} --}}
+
+{{!-- <h1>Registration</h1> --}}
+
+{{#if errors}}
+    {{#each errors}}
+        {{msg}}
+        <hr>
+    {{/each}}
+{{/if}}
+
+{{!-- <form action="/registration/new" method="POST">
+    <label for="username">Name</label>
+    <input type="text" name="username">
+    <label for="email">Email</label>
+    <input type="text" name="email">
+    <label for="password">Password</label>
+    <input type="text" name="password">
+    <label for="confirmPassword">Confirm Password</label>
+    <input type="text" name="confirmPassword">
+    <button type="submit">Submit</button>
+</form> --}}
+
+{{!-- <div id="vegetables"> --}}
+
+<div id="vegetables">
+
+<div class="close">
+
+<form action="#" method="post" class="animated slideInDown">
+  <h2>Welcome back!</h2>
+    <p>
+      <label for="Username" class="floatLabel">Username</label>
+      <input id="Username" name="Username" type="text">
+    </p>
+
+    <p>
+      <label for="password" class="floatLabel">Password</label>
+      <input id="password" name="password" type="password">
+      {{!-- <span>Your password is longer than 8 characters</span> --}}
+    </p>
+    {{!-- <p>
+      <label for="confirm_password" class="floatLabel">Confirm Password</label>
+      <input id="confirm_password" name="confirm_password" type="password">
+      <span>Your passwords do not match</span>
+    </p> --}}
+    <p>
+      <input type="submit" value="Login" id="submit">
+    </p>
+  </form>
+
+  </div>
+
+
+
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+
+<script type="text/javascript" src="assets/js/logic.js"></script>
+
+{{!-- </div>
+</section> --}}
+
+
+{{!-- 
+
+<{{!-- div class="login-wrapper columns">
   <div class="column is-8 is-hidden-mobile hero-banner">
     <section class="hero is-fullheight is-dark">
       <div class="hero-body" id="login">
@@ -32,7 +104,7 @@
               <div class="login-form">
                 <form method="POST" action="/login">
                   <p class="control has-icon has-icon-right">
-                    <input class="input email-input" type="text" placeholder="jsmith@example.org" name="username">
+                    <input class="input email-input" type="text" placeholder="jsmith.org" name="username">
                     <span class="icon user">
                       <i class="fa fa-user"></i>
                     </span>
@@ -60,4 +132,4 @@
       </div>
     </section>
   </div>
-</div>
+</div> --}}
