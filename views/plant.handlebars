@@ -11,7 +11,7 @@ or alert to tell the user to login --}}
                         <p class="title is-1">{{results.name}}
                             <form action="/favorites/add" method="POST">
                                 <input type="hidden" name="plantID" value={{results.id}}>
-                                <button type="submit">
+                                <button class="favButton" type="submit">
                                         <a class="button is-primary is-outlined is-pulled-right">
                                             <span class="icon is-small">
                                             <i class="fa fa-heart"></i>
@@ -41,7 +41,7 @@ or alert to tell the user to login --}}
             </div>
             <div class="tile is-parent is-vertical">
                 <article class="tile is-child notification white">
-                    <figure class="image is-square">
+                    <figure class="image">
                         <img src={{plantImg results.image}}>
                     </figure>
                 </article>
@@ -114,15 +114,3 @@ or alert to tell the user to login --}}
 </div>
 </section>
 </div>
-
-
-<!-- Foot for Green Thumb -->
-<footer class="footer">
-    <div class="container">
-        <div class="content has-text-centered">
-            <p>
-                <strong>Green Thumb</strong> a web application built by <a href="https://github.com/fbrahman/greenThumb">Cindy Chen, Nick Nociforo, Fahad Rahman, Kira Zoltan</a>
-            </p>
-        </div>
-    </div>
-</footer>

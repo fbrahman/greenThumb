@@ -24,6 +24,11 @@
 	background-color: #fff;
 }
 
+.favButton {
+	border: none;
+	background-color: #fff;
+}
+
 /* Nav Bar CSS*/
 h3 {
 	color: green;
