@@ -20,23 +20,29 @@ router.get('/search', (req, res, next) => {
     }).then(function (data) {
         let hbsObject = {};
         if (data.length === 1) {
-            let plantData = data[0];
-            let favData = data[0].favorites;
-            let favId = 99999;
-            let isFav = false;
-            let userId = req.user.userId;
+            if (req.isAuthenticated()){
+                let plantData = data[0];
+                let favData = data[0].favorites;
+                let favId = 99999;
+                let isFav = false;
+                let userId = req.user.userId;
 
-            for(let i = 0; i < favData.length; i++){
-                if(favData[i].userId === userId){
-                    isFav = true;
-                    favId = favData[i].id;
+                for(let i = 0; i < favData.length; i++){
+                    if(favData[i].userId === userId){
+                        isFav = true;
+                        favId = favData[i].id;
+                    }
                 }
-            }
 
-            hbsObject = {
-                results: plantData,
-                isFav: isFav,
-                favId: favId
+                hbsObject = {
+                    results: plantData,
+                    isFav: isFav,
+                    favId: favId
+                }
+            } else {
+                hbsObject ={
+                    results:data[0]
+                }
             }
             res.render('plant', hbsObject);
         } else {
