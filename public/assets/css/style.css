@@ -69,3 +69,13 @@ h3 {
 	overflow: hidden;
 	height: 200px;
 }
+
+
+/* About Page */
+.banner {
+	background-image: url("../images/garden.jpg");
+	height: 100%;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
