@@ -1,20 +1,17 @@
 <section class="hero is-fullheight banner is-dark">
 		<div class="hero-body">
 			<div class="container">
-				<h1 class="title is-1" id="box">
+				<h1 class="title is-1">
 					<strong> greenThumb </strong>
 				</h1>
 			</div>
 		</div>
 	</section>
-<section class="hero is-fullheight is-dark">
+<section class="hero is-fullheight">
 		<div class="hero-body">
 			<div class="column is-offset-1 is-10">
-				<h1 class="title is-4">
-					<strong> WELCOME </strong>
-				</h1>
 				<h2 class="title is-2">
-					Ahhhh, another hot summer, and another chance to fulfill your lifelong desire to grow your own vegetables. You fantasize about sinking your teeth into juicy tomatoes or feeling the crisp kale snap beneath your fingers.... But oh no! You just rememebred...you don't know how to garden! And you can barley keep your smartphone alive, let alone a living, photosythensizing being. Whatever are you going to do? If only there were an app for that....oh wait there is!
+					Ahhhh, another hot summer, and another chance to fulfill your lifelong desire to grow your own vegetables. You fantasize about sinking your teeth into juicy tomatoes or feeling the crisp kale snap beneath your fingers.... But oh no! You just remembered...you don't know how to garden! And you can barley keep your smartphone alive, let alone a living, photosythensizing being. Whatever are you going to do? If only there were an app for that....oh wait there is!
 				</h2>
 			</div>
 		</div>
@@ -26,7 +23,7 @@
 						<strong>CONCEPT</strong>
 					</h1>
 					<h2 class="title is-2">
-						Introducing greenThumb, a web application for the modern day gardener. greenThumb provides detailed growing information for your favorite vegetables and how to maximize your yield. Simply type in a desired vegetable, and watch your results flow in. Each result lists key data for each plant, including sun exposure, soil pH, and time to harvest. Educate yourself on crops that grow well in your region and which crops you can grow togther. Create an account, and favorite your most coveted botanicals. Share with friends your success. The fun goes onion on!  
+						Introducing greenThumb, a web application for the modern day gardener. greenThumb provides detailed growing information for your favorite vegetables and how to maximize your yield. Simply type in a desired vegetable, and watch your results flow in. Each result lists key data for each plant, including sun exposure, soil pH, and time to harvest. Educate yourself on crops that grow well in your region and which crops you can grow togther. Create an account, and favorite your most coveted botanicals. Share your success with friends. The fun goes onion on!  
 					</h2> 
 				</div>
 			</div>
@@ -44,21 +41,21 @@
 						<article class="tile is-child box">
 							<p class="subtitle">Team Member</p>
 							<p class="title">Fahad Rahman</p>
-							<p class="title is-5 ">Legend has it that moments after Fahad left the womb the first words he uttered were "for(i=0; i < var.length; i++)"</p>
+							<p class="title is-5 ">Legend has it that moments after Fahad left the womb the first words he uttered were <br>"for(i=0; i < var.length; i++)"</p>
 						</article>
 					</div>
 					<div class="tile is-parent">
 						<article class="tile is-child box in-success">
 							<p class="subtitle">Team Member</p>
 							<p class="title">Cindy Chen</p>
-							<p class="title is-5 ">You know Cindy has Ninja blood in her veins cause she kills at CSS and routes.</p>
+							<p class="title is-5 ">You know Cindy has Ninja blood in her veins cause she kills at front end and routing.</p>
 						</article>
 					</div>
 					<div class="tile is-parent">
 						<article class="tile is-child box">
 							<p class="subtitle">Team Member</p>
 							<p class="title">Kira Zoltan</p>
-							<p class="title is-5 ">Calling the passion in her soul fire is an understatement. Calling it firebase is more appropriate.</p>
+							<p class="title is-5 ">Don't mess with her CSS.</p>
 						</article>
 					</div>
 					<div class="tile is-parent">
@@ -78,11 +75,12 @@
 				<h1 class="title is-4">
 					<strong> DESIGN FEATURES</strong>
 				</h1>
-				<h2 class="title is-2">
-					The app is simple and intuitve. The Landing Page prompts you to write a vegetable that you would like to grow. If you type in a partial word, the app will search for all vegetables containg those words. For example, if you type in "to" you would get results for "tomato" and "potato". The results propogate on a separate page as pictures of the search results. Upon clicking on the desired vegetable, you will be presented with a page that outlines very detailed information about how to grow the crop. This data was borrowed from the aforementioned public database.
+				<h2 class="title is-3">
+					The app is simple and intuitve. <br> <br> The Landing Page prompts you to write a vegetable that you would like to grow. If you type in a partial word, the app will search for all vegetables containing those words. 
+					<br> <br> For example, if you type in "to" you would get results for "tomato" and "potato". The results propogate on a separate page as pictures of the search results. Upon clicking on the desired vegetable, you will be presented with a page that outlines very detailed information about how to grow the crop. This data was borrowed from the aforementioned public database.
 				</h2>
-				<h2 class="title is-2">
-					The navigation bar offers a Sign Up feature where you can create a free account so that you may store your favorite vegetables. CLicking this button will take you to a new page where you will be prompted for a username, an email address, and a password.<br><br>
+				<h2 class="title is-3">
+					The navigation bar offers a Sign Up feature where you can create a free account so that you may store your favorite vegetables. Clicking this button will take you to a new page where you will be prompted for a username, an email address, and a password.<br><br>
 
 					The navigation bar offers a search bar for you to search for new vegetbales. The bar also offers a home and about page which will take you to the landing page and page about the developers respectively.
 				</h2>
@@ -92,24 +90,26 @@
 	<section class="hero is-medium is-white">
 		<div class="hero-body">
 			<div class="columns is-mobile">
-				<div class="column is-half is-offset-one-quarter"> 
+				<div class="column is-offset-1 is-10"> 
 					<h1 class="title is-4">
 						<strong> TECHNICAL OVERVIEW </strong>
 					</h1>
 					<h2 class="title is-3">
-						The following packages were used: <br>
-						Express, Body Parser, Handlebards, Express Validator, Sequelize, Express-Session, CookieParser, Passport, MySQL, LocalStrategy, Bcrypt <br><br>
-						greenThumb accesses a database of vegetable iformation through damwhit's public database found at "https://github.com/damwhit/harvest_helper/blob/master/data/garden_vegetables.csv"<br><br>
+						Express, Body Parser, Handlebars, Express Validator, Sequelize, Express-Session, CookieParser, Passport, MySQL, LocalStrategy, Bcrypt <br><br>
+						greenThumb accesses a vegetable database through damwhit's github at <a href="https://github.com/damwhit/harvest_helper/blob/master/data/garden_vegetables.csv"> https://github.com/damwhit/harvest_helper/blob/master/data/garden_vegetables.csv</a><br><br>
 
-						Bulma was the framwork utlized for the front end design. MySQL hosts the database through sequelize which is queried when an entry is inputed. The primary languages used are javascript, html, and css.<br><br>
+						Bulma was the framework utlized for the front end design. <br><br> MySQL hosts the database through sequelize which is queried when an entry is inputed. <br><br>The primary languages used are javascript, html, and css.<br><br>
 
-						The code is stored at https://github.com/fbrahman/greenThumb.
+						The code is stored at <a href="https://github.com/fbrahman/greenThumb">https://github.com/fbrahman/greenThumb.</a>
 					</h2> <br>
 					<h1 class="title is-4">
 						<strong>WHAT'S NEXT?</strong>
 					</h1>
 					<h2 class="title is-3">
 						Clean up the responsive design
+						GPS location
+						Email/Text reminders to water
+						Biggest, baddest database of plants/API
 					</h2> <br> 
 				</div>
 			</div>
