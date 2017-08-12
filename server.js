@@ -91,12 +91,13 @@ let hbs = exphbs.create({
       return "/search?plantName=" + formattedName;
     }
   }
-});
+})
 
 app.engine("handlebars", hbs.engine);
 app.set("view engine", "handlebars");
 
 // Static directory
+// =============================================================
 app.use(express.static('public'));
 app.use('/plant', express.static(__dirname + '/public/assets/images/vegetable_photos'));
 
