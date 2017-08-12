@@ -18,7 +18,7 @@ or alert to tell the user to login --}}
                                             <span class="icon is-small">
                                             <i class="fa fa-heart"></i>
                                             </span>
-                                            <span> UnFavorite</span>
+                                            <span> Favorited</span>
                                         </a>
                                     </button>
                                 </form>
@@ -26,9 +26,9 @@ or alert to tell the user to login --}}
                                 <form action="/favorites/add" method="POST" class="favForm">
                                     <input type="hidden" name="plantID" value={{results.id}}>
                                     <button class="favButton" type="submit">
-                                        <a class="button is-success">
+                                        <a class="button is-success is-outlined">
                                             <span class="icon is-small">
-                                            <i class="fa fa-heart"></i>
+                                            <i class="fa fa-heart-o"></i>
                                             </span>
                                             <span> Favorite</span>
                                         </a>
