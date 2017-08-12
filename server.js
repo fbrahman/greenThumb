@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 const exphbs = require('express-handlebars');
 const expressValidator = require('express-validator');
 const Sequelize = require('sequelize');
+const methodOverride = require('method-override');
 
 //Authentication packages
 // =============================================================
@@ -32,18 +33,33 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.text());
 app.use(bodyParser.json({ type: 'application/vnd.api+json' }));
 
+//Initiate method override 
+// =============================================================
+app.use(methodOverride("_method"));
+
 //Authentication setup
 // =============================================================
 app.use(cookieParser());
 app.use(expressValidator());
 
-let options = {
-  host: 'localhost',
+let options = 
+//for heroku
+{
+  host: 'mna97msstjnkkp7h.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
   port: 3306,
-  user: 'root',
-  password: 'password',
-  database: 'greenThumb_db'
+  user: 'zla69w4m6v0zqhmy',
+  password: 'h9rtxnhtk54qpult',
+  database: 'k1afzp5oa9g58g9k'
 };
+
+//uncomment for local use
+// {
+//   host: 'localhost',
+//   port: 3306,
+//   user: 'root',
+//   password: 'password',
+//   database: 'greenThumb_db'
+// };
 
 let sessionStore = new MySQLStore(options);
 

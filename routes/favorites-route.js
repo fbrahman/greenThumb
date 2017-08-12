@@ -10,23 +10,43 @@ const db = require("../models");
 router.get('/favorites', authenticationMiddleware(), (req, res, next) => {
     console.log(req.user);
     console.log(req.isAuthenticated());
-    res.render('favorites');
+    db.favorites.findAll({
+        where:req.user, 
+        include:[db.plants]
+    }).then((data)=>{
+        console.log(data.length);
+        let hbsObject = {
+            favCount: data.length,
+            fav: data
+        }
+        res.render('favorites', hbsObject);
+        // console.log(JSON.stringify(results[0].plant.name))
+    });
 });
 
 //add a favorite for the user
 // =============================================================
 router.post('/favorites/add', (req, res,next) => {
-    let userId = req.user.id;
+    let userId = req.user.userId;
     let plantId = req.body.plantID;
-    db.favorites.findOrCreate({where:{userId:userId, plantId:plantId}})
-        .then((dbFavorite)=>{
+    db.favorites.findOrCreate({
+        where:{
+            userId:userId, 
+            plantId:plantId
+            }
+        }).then((dbFavorite)=>{
             console.log(dbFavorite);
             res.redirect('back');
         })
 });
 
 router.delete('/favorites/remove', (req, res, next)=>{
-
+    console.log("in delete", req.body);
+    db.favorites.destroy({
+        where:req.body
+    }).then((dbResults)=>{
+        res.redirect('back');
+    })
 })
 
 //authentication check middleware
