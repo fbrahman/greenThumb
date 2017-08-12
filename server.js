@@ -91,7 +91,8 @@ let hbs = exphbs.create({
       return "/search?plantName=" + formattedName;
     }
   }
-})
+});
+
 app.engine("handlebars", hbs.engine);
 app.set("view engine", "handlebars");
 
