@@ -12,7 +12,7 @@ const db = require('../models');
 const saltRounds = 10;
 
 //create new user
-router.post('/registration/new', (req, res, next) => {
+router.post('/registration', (req, res, next) => {
     // console.log(req.body);
     //validation rules for registration fields
     req.checkBody('username', 'Username field cannot be empty.').notEmpty();
@@ -30,7 +30,7 @@ router.post('/registration/new', (req, res, next) => {
         // console.log(results.isEmpty());
         if (!results.isEmpty()) {
             console.log("errors exist");
-            res.render('registration', { errors: errors })
+            res.render('registration', {errors:errors});
         } else {
             bcrypt.hash(req.body.password, saltRounds, (err, hash) => {
                 db.users.create({ username: req.body.username, email: req.body.email, password: hash })

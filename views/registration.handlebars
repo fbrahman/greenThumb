@@ -2,19 +2,17 @@
   <link rel="stylesheet" href="assets/css/registrationStyle.css"> 
 {{/section}} 
 
-{{#if errors}} 
-  {{#each errors}} 
-    {{msg}}
-    <hr> 
-  {{/each}} 
-{{/if}}
-
 <div id="vegetables">
 
   <div class="close">
 
-    <form action="/registration/new" method="POST" class="animated slideInDown">
+    <form action="/registration" method="POST" class="animated slideInDown">
       <h2>Sign Up</h2>
+      {{#if errors}} 
+        {{#each errors}} 
+         <div class="notification is-danger"> {{msg}} </div>
+        {{/each}} 
+      {{/if}}
       <p>
         <label for="Username" class="floatLabel">Username</label>
         <input id="Username" name="username" type="text">
