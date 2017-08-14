@@ -1,6 +1,7 @@
 // Dependencies
 // =============================================================
 const express = require('express');
+const flash = require('connect-flash');
 
 const router = express.Router();
 const db = require("../models");
@@ -17,7 +18,7 @@ router.get('/registration', (req, res, next) => {
 
 //login page
 router.get('/login', (req, res, next) => {
-    res.render('login');
+    res.render('login', {message: req.flash('error')});
 });
 
 //results page

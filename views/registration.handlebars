@@ -1,8 +1,13 @@
- {{#section 'head'}}
-<link rel="stylesheet" href="assets/css/registrationStyle.css"> {{/section}} 
+{{#section 'head'}}
+  <link rel="stylesheet" href="assets/css/registrationStyle.css"> 
+{{/section}} 
 
- {{#if errors}} {{#each errors}} {{msg}}
-<hr> {{/each}} {{/if}}
+{{#if errors}} 
+  {{#each errors}} 
+    {{msg}}
+    <hr> 
+  {{/each}} 
+{{/if}}
 
 <div id="vegetables">
 

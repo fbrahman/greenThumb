@@ -6,6 +6,7 @@ const exphbs = require('express-handlebars');
 const expressValidator = require('express-validator');
 const Sequelize = require('sequelize');
 const methodOverride = require('method-override');
+const flash = require('connect-flash')
 
 //Authentication packages
 // =============================================================
@@ -44,22 +45,22 @@ app.use(expressValidator());
 
 let options = 
 //for heroku
-{
-  host: 'mna97msstjnkkp7h.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
-  port: 3306,
-  user: 'zla69w4m6v0zqhmy',
-  password: 'h9rtxnhtk54qpult',
-  database: 'k1afzp5oa9g58g9k'
-};
-
-//uncomment for local use
 // {
-//   host: 'localhost',
+//   host: 'mna97msstjnkkp7h.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
 //   port: 3306,
-//   user: 'root',
-//   password: 'password',
-//   database: 'greenThumb_db'
+//   user: 'zla69w4m6v0zqhmy',
+//   password: 'h9rtxnhtk54qpult',
+//   database: 'k1afzp5oa9g58g9k'
 // };
+
+// uncomment for local use
+{
+  host: 'localhost',
+  port: 3306,
+  user: 'root',
+  password: 'password',
+  database: 'greenThumb_db'
+};
 
 let sessionStore = new MySQLStore(options);
 
@@ -72,6 +73,8 @@ app.use(session({
 }));
 app.use(passport.initialize());
 app.use(passport.session());
+
+app.use(flash());
 
 // Set Handlebars as the default templating engine.
 // =============================================================
@@ -141,11 +144,11 @@ passport.use(new LocalStrategy(
             return done(null, { userId: userId });
           } else {
             console.log("password incorrect");
-            return done(null, false);
+            return done(null, false, {message: "Incorrect password."});
           }
         });
       } else {
-        return done(null, false);
+        return done(null, false, {message: "Incorrect user name."});
       }
     }).catch(err => {
       done(err);

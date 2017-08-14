@@ -9,7 +9,8 @@ const db = require('../models');
 //login user
 router.post('/login', passport.authenticate('local',{
     successRedirect:'/favorites',
-    failureRedirect:'/login'
+    failureRedirect:'/login', 
+    failureFlash: true
 }));
 
 //logout user

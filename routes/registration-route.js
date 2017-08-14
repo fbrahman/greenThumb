@@ -49,10 +49,12 @@ router.post('/registration/new', (req, res, next) => {
 });
 
 passport.serializeUser(function (user, done) {
+    console.log("serial: ", user);
     done(null, user);
 });
 
 passport.deserializeUser(function (user, done) {
+    console.log("deserial: ",user)
     done(null, user);
 });
 

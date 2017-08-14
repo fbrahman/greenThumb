@@ -8,6 +8,9 @@
 
 <form action="/login" method="POST" class="animated slideInDown">
   <h2>Welcome back!</h2>
+     {{#if message}}
+       <div class="notification is-danger"> {{message}} </div>
+    {{/if}}
     <p>
       <label for="Username" class="floatLabel">Username</label>
       <input id="Username" name="username" type="text">
