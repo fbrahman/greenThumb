@@ -44,23 +44,23 @@ app.use(cookieParser());
 app.use(expressValidator());
 
 let options = 
-//for heroku
-// {
-//   host: 'mna97msstjnkkp7h.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
-//   port: 3306,
-//   user: 'zla69w4m6v0zqhmy',
-//   password: 'h9rtxnhtk54qpult',
-//   database: 'k1afzp5oa9g58g9k'
-// };
+// for heroku
+{
+  host: 'mna97msstjnkkp7h.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
+  port: 3306,
+  user: 'zla69w4m6v0zqhmy',
+  password: 'h9rtxnhtk54qpult',
+  database: 'k1afzp5oa9g58g9k'
+};
 
 // uncomment for local use
-{
-  host: 'localhost',
-  port: 3306,
-  user: 'root',
-  password: 'password',
-  database: 'greenThumb_db'
-};
+// {
+//   host: 'localhost',
+//   port: 3306,
+//   user: 'root',
+//   password: 'password',
+//   database: 'greenThumb_db'
+// };
 
 let sessionStore = new MySQLStore(options);
 
