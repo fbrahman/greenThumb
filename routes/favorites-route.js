@@ -27,7 +27,7 @@ router.get('/favorites', authenticationMiddleware(), (req, res, next) => {
 //add a favorite for the user
 // =============================================================
 router.post('/favorites/add', (req, res,next) => {
-    let userId = req.user.userId || req.user.Id;
+    let userId = req.user.userId;
     let plantId = req.body.plantID;
     db.favorites.findOrCreate({
         where:{

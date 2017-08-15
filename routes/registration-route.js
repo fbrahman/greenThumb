@@ -35,7 +35,7 @@ router.post('/registration', (req, res, next) => {
             bcrypt.hash(req.body.password, saltRounds, (err, hash) => {
                 db.users.create({ username: req.body.username, email: req.body.email, password: hash })
                     .then((dbUser) => {
-                        let user = {id:dbUser.id}
+                        let user = {userId:dbUser.id}
                         req.login(user, (err) => {
                             res.redirect('/favorites')
                         })
