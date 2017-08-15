@@ -26,7 +26,7 @@ router.post('/registration', (req, res, next) => {
 
     req.getValidationResult().then((results) => {
         const errors = results.array();
-        // console.log(`errors: ${JSON.stringify(errors)}`);
+        console.log(`errors: ${JSON.stringify(errors)}`);
         // console.log(results.isEmpty());
         if (!results.isEmpty()) {
             console.log("errors exist");
@@ -41,7 +41,8 @@ router.post('/registration', (req, res, next) => {
                         })
                     })
                     .catch(err => {
-                        console.log(err);
+                        // console.log("mySQL error: ",err);
+                        res.render('registration',{errors:err.errors});
                     });
             });
         }

@@ -4,13 +4,19 @@ module.exports = function (sequelize, DataTypes) {
             type: DataTypes.STRING,
             allowNull: false,
             len: [1], 
-            unique: true
+            unique: {
+                args:true, 
+                msg:'That username is taken. Try again.'
+            }
         },
         email: {
             type: DataTypes.STRING,
             allowNull: false,
             len: [1], 
-            unique: true
+            unique: {
+                args:true,
+                msg:'There is an account already associated with that email address.'
+            }
         },
         password: {
             type: DataTypes.STRING.BINARY, 

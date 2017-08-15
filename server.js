@@ -41,26 +41,41 @@ app.use(methodOverride("_method"));
 //Authentication setup
 // =============================================================
 app.use(cookieParser());
-app.use(expressValidator());
+app.use(expressValidator({
+  errorFormatter: function(param, msg, value) {
+      var namespace = param.split('.')
+      , root    = namespace.shift()
+      , formParam = root;
+
+    while(namespace.length) {
+      formParam += '[' + namespace.shift() + ']';
+    }
+    return {
+      param : formParam,
+      message   : msg,
+      value : value
+    };
+  }
+}));
 
 let options = 
 // for heroku
-{
-  host: 'mna97msstjnkkp7h.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
-  port: 3306,
-  user: 'zla69w4m6v0zqhmy',
-  password: 'h9rtxnhtk54qpult',
-  database: 'k1afzp5oa9g58g9k'
-};
+// {
+//   host: 'mna97msstjnkkp7h.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
+//   port: 3306,
+//   user: 'zla69w4m6v0zqhmy',
+//   password: 'h9rtxnhtk54qpult',
+//   database: 'k1afzp5oa9g58g9k'
+// };
 
 // uncomment for local use
-// {
-//   host: 'localhost',
-//   port: 3306,
-//   user: 'root',
-//   password: 'password',
-//   database: 'greenThumb_db'
-// };
+{
+  host: 'localhost',
+  port: 3306,
+  user: 'root',
+  password: 'password',
+  database: 'greenThumb_db'
+};
 
 let sessionStore = new MySQLStore(options);
 
@@ -158,10 +173,10 @@ passport.use(new LocalStrategy(
 
 // Syncing our sequelize models and then starting our Express app
 // =============================================================
-db.sequelize.sync().then(function () {
+db.sequelize.sync({force:true}).then(function () {
   app.listen(PORT, function () {
     console.log("App listening on PORT " + PORT);
   });
   //Uncomment to seed plants table in local db
-  // dbSeed();
+  dbSeed();
 });
