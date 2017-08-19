@@ -126,6 +126,7 @@ let registrationRoute = require('./routes/registration-route.js');
 let loginRoute = require('./routes/login-route.js');
 let favoritesRoute = require('./routes/favorites-route.js');
 let searchRoute = require('./routes/search-route.js');
+let apiRoute = require('./routes/api-route.js');
 
 app.use((req, res, next) => {
   res.locals.isAuthenticated = req.isAuthenticated();
@@ -137,6 +138,7 @@ app.use('/', registrationRoute);
 app.use('/', loginRoute);
 app.use('/', favoritesRoute);
 app.use('/', searchRoute);
+app.use('/', apiRoute);
 
 //passport login check
 // =============================================================
