@@ -20,7 +20,8 @@
 		$("#modal-email-div").hide();
 		$("#modal-password2-div").hide();
 		$("#modal-header").html("Welcome Back");
-		$("#submit").html("Log in");
+		$("#signup-submit").hide();
+		$("#login-submit").show();
 		$("#modal-switch").html("Sign up");
 		isSignup = false;
 	};
@@ -29,7 +30,8 @@
 		$("#modal-email-div").show();
 		$("#modal-password2-div").show();
 		$("#modal-header").html("Welcome");
-		$("#submit").html("Sign up");
+		$("#login-submit").hide();
+		$("#signup-submit").show();
 		$("#modal-switch").html("Log in");
 		isSignup = true;
 	};
