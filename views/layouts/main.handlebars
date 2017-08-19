@@ -13,6 +13,7 @@
 	{{{_sections.head}}}
 	<link rel="shortcut icon" type="image/png" href="../assets/images/favicons/fav.png"/>
 	<link rel="icon" type="image/png" href="../assets/images/favicons/fav.png" sizes="16x16">
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 </head>
 </body>
 <!-- Global Navigation -->
@@ -38,8 +39,8 @@
 				</p>
 			</a>
 			<a class="nav-item is-tab" href="/">
-					Home
-			</a> 
+				Home
+			</a>
 			{{#if isAuthenticated}}
 				<a class="nav-item is-tab" href="favorites">
 					Favorites
@@ -54,10 +55,10 @@
 						Log out
 					</a>
 				{{else}}
-					<a class="button" href="login">
+					<a class="button loginBtn">
 						Log in
 					</a>
-					<a class="button is-success" href="registration">
+					<a class="button is-success signupBtn">
 						Sign up
 					</a>
 				{{/if}}
@@ -81,3 +82,58 @@
 		</div>
 	</div>
 </footer>
+
+<!-- Log in modal -->
+<div class="modal">
+  <div class="modal-background closeBtn"></div>
+  <div class="modal-card animated slideInDown">
+    <section class="modal-card-body is-centered loginModal animated slideInDown">
+		<button class="delete is-pulled-right closeBtn" aria-label="close"></button>
+		<form action="/login" method="POST">
+			{{#if message}}
+			<div class="notification is-danger"> {{message}} </div>
+			{{/if}}<br><br>
+			{{!--<div class="tabs loginField is-centered">
+				<ul>
+					<li id="loginlink" class="is-active"><a>Log in</a></li>
+					<li id="signuplink" ><a>Sign up</a></li>
+				</ul>
+			</div>--}}
+			<h1 id="modal-header" class="modal-card-title has-text-centered">Welcome! </h1> <br>
+			<div id="modal-username-div" class="field loginField">
+				<label class="label">Username</label>
+				<div class="control"> 
+					<input class="input" type="text" placeholder="Vege Tate">
+				</div>
+			</div>
+			<div id="modal-email-div" class="field loginField">
+				<label class="label">Email</label>
+				<div class="control"> 
+					<input class="input" type="email" placeholder="me@examples.com">
+				</div>
+			</div>
+			<div id="modal-password-div" class="field loginField">
+				<label class="label">Password</label>
+				<div class="control">
+					<input class="input" type="text" placeholder="password">
+				</div>
+			</div>
+			<div id="modal-password2-div" class="field loginField">
+				<label class="label">Confirm Password</label>
+				<div class="control">
+					<input class="input" type="text" placeholder="password">
+				</div>
+			</div><br>
+			<div class="loginField">
+			<button class="button is-success modalBtn is-fullwidth" type="submit" value="Login" id="submit">Sign up</button>
+			<p> Already a user? 
+				<a id="modal-switch"> Log in</a> 
+			</p>
+			</div><br><br><br>
+		</form>
+    </section>
+  </div>
+</div>
+
+<script type="text/javascript" src="../assets/js/modal.js"></script>
+
