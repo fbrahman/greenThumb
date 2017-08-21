@@ -1,4 +1,5 @@
-	var isSignup = true;
+	//Modal Javascript
+  var isSignup = true;
 	$(".loginBtn").on("click", function() {
 		$(".modal").toggleClass("is-active");
 		createLogin();
@@ -40,3 +41,16 @@
 		$(".modal").toggleClass("is-active");
 	});
 
+
+// Nav Bar Burger Menu 
+
+jQuery(document).ready(function ($) {
+
+  var $toggle = $('#nav-toggle');
+  var $menu = $('#nav-menu');
+
+  $toggle.click(function() {
+    $(this).toggleClass('is-active');
+    $menu.toggleClass('is-active');
+  });
+});
