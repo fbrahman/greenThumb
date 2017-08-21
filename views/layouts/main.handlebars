@@ -17,55 +17,58 @@
 </head>
 </body>
 <!-- Global Navigation -->
+
 <nav class="nav has-shadow" id="top">
-	<div class="container">
-		<div class="nav-left">
-			<a class="nav-item is-large" href="/">
-				<img src="../assets/images/logo.png" alt="logo">&nbsp;
-				<h3> greenThumb </h3>
-				</a>
-		</div>
-		<span class="nav-toggle navbar">
-		<span></span>
-		<span></span>
-		<span></span>
-		</span>
-		<div class="nav-right nav-menu">
-			<a class="nav-item">
-				<p class="control has-icons-left">
-				<form action="/search" method="GET">
-					<input class="input is-small" type="text" placeholder="search" name="plantName">
-				</form>
-				</p>
-			</a>
-			<a class="nav-item is-tab" href="/">
-				Home
-			</a>
-			{{#if isAuthenticated}}
-				<a class="nav-item is-tab" href="favorites">
-					Favorites
-				</a> 
-			{{/if}}
-			<a class="nav-item is-tab" href="about">
-					About
-			</a>
-			<span class="nav-item">
-				{{#if isAuthenticated}}
-					<a class="button" href="logout">
-						Log out
-					</a>
-				{{else}}
-					<a class="button loginBtn">
-						Log in
-					</a>
-					<a class="button is-success signupBtn">
-						Sign up
-					</a>
-				{{/if}}
-			</span>
-		</div>
+	<div class="nav-left">
+		<a class="nav-item is-brand is-large" href="/">
+			<img src="../assets/images/logo.png" alt="logo">&nbsp;
+			<h3> greenThumb </h3>
+		</a>
 	</div>
+
+	<span id="nav-toggle" class="nav-toggle">
+		<span></span>
+		<span></span>
+		<span></span>
+	</span>
+
+  <div id='nav-menu' class="nav-right nav-menu">
+	<a class="nav-item"> 
+		<p class="control has-icons-left">
+			<form action="/search" method="GET">
+				<input class="input is-small" type="text" placeholder="search" name="plantName">
+			</form>
+		</p>
+	</a>
+    <a class="nav-item" href="/">
+      Home
+    </a>
+	{{#if isAuthenticated}}
+		<a class="nav-item" href="favorites">
+			Favorites
+		</a> 
+	{{/if}}
+    <a class="nav-item" href="about">
+      About
+    </a>
+
+	<span class="nav-item">
+		{{#if isAuthenticated}}
+			<a class="button" href="logout">
+				Log out
+			</a>
+		{{else}}
+			<a class="button loginBtn">
+				Log in
+			</a>
+			<a class="button is-success signupBtn">
+				Sign up
+			</a>
+		{{/if}}
+	</span>
+  </div>
 </nav>
+
 <!-- Global Navigation-->
 {{{ body }}}
 </body>
@@ -137,5 +140,5 @@
   </div>
 </div>
 
-<script type="text/javascript" src="../assets/js/modal.js"></script>
+<script type="text/javascript" src="../assets/js/main.js"></script>
 
