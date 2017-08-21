@@ -1,144 +1,137 @@
 <!DOCTYPE html>
 <html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>GreenThumb</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+		<link rel="stylesheet" id="bulma" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.3.2/css/bulma.min.css" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+		<link rel="stylesheet" type="text/css" href="assets/css/style.css"> 
+		{{{_sections.head}}}
+		<link rel="shortcut icon" type="image/png" href="../assets/images/favicons/fav.png"/>
+		<link rel="icon" type="image/png" href="../assets/images/favicons/fav.png" sizes="16x16">
+		<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+	</head>
 
-<head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>GreenThumb</title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-	<link rel="stylesheet" id="bulma" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.3.2/css/bulma.min.css" />
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
-	 <link rel="stylesheet" type="text/css" href="assets/css/style.css"> 
-	{{{_sections.head}}}
-	<link rel="shortcut icon" type="image/png" href="../assets/images/favicons/fav.png"/>
-	<link rel="icon" type="image/png" href="../assets/images/favicons/fav.png" sizes="16x16">
-	<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-</head>
-</body>
-<!-- Global Navigation -->
+	<body class="main-body">
+		<!-- Global Navigation -->
+		<nav class="nav has-shadow" id="top">
+			<div class="nav-left">
+				<a class="nav-item is-brand is-large" href="/">
+					<img src="../assets/images/logo.png" alt="logo">&nbsp;
+					<h3> greenThumb </h3>
+				</a>
+			</div>
 
-<nav class="nav has-shadow" id="top">
-	<div class="nav-left">
-		<a class="nav-item is-brand is-large" href="/">
-			<img src="../assets/images/logo.png" alt="logo">&nbsp;
-			<h3> greenThumb </h3>
-		</a>
-	</div>
+			<span id="nav-toggle" class="nav-toggle">
+				<span></span>
+				<span></span>
+				<span></span>
+			</span>
 
-	<span id="nav-toggle" class="nav-toggle">
-		<span></span>
-		<span></span>
-		<span></span>
-	</span>
+			<div id='nav-menu' class="nav-right nav-menu">
+				<a class="nav-item"> 
+					<p class="control has-icons-left">
+						<form action="/search" method="GET">
+							<input class="input is-small" type="text" placeholder="search" name="plantName">
+						</form>
+					</p>
+				</a>
+				<a class="nav-item" href="/">
+				Home
+				</a>
+				{{#if isAuthenticated}}
+					<a class="nav-item" href="favorites">
+						Favorites
+					</a> 
+				{{/if}}
+				<a class="nav-item" href="about">
+				About
+				</a>
 
-  <div id='nav-menu' class="nav-right nav-menu">
-	<a class="nav-item"> 
-		<p class="control has-icons-left">
-			<form action="/search" method="GET">
-				<input class="input is-small" type="text" placeholder="search" name="plantName">
-			</form>
-		</p>
-	</a>
-    <a class="nav-item" href="/">
-      Home
-    </a>
-	{{#if isAuthenticated}}
-		<a class="nav-item" href="favorites">
-			Favorites
-		</a> 
-	{{/if}}
-    <a class="nav-item" href="about">
-      About
-    </a>
+				<span class="nav-item">
+					{{#if isAuthenticated}}
+						<a class="button" href="logout">
+							Log out
+						</a>
+					{{else}}
+						<a class="button loginBtn">
+							Log in
+						</a>
+						<a class="button is-success signupBtn">
+							Sign up
+						</a>
+					{{/if}}
+				</span>
+			</div>
+		</nav>
 
-	<span class="nav-item">
-		{{#if isAuthenticated}}
-			<a class="button" href="logout">
-				Log out
-			</a>
-		{{else}}
-			<a class="button loginBtn">
-				Log in
-			</a>
-			<a class="button is-success signupBtn">
-				Sign up
-			</a>
-		{{/if}}
-	</span>
-  </div>
-</nav>
-
-<!-- Global Navigation-->
-{{{ body }}}
-</body>
-
-</html>
-
-<!-- Foot for Green Thumb -->
-<footer class="footer">
-	<div class="container">
-		<div class="content has-text-centered">
-			<p>
-				<strong>Green Thumb</strong> a web application built by <a href="https://github.com/fbrahman/greenThumb">Cindy Chen, Nick Nociforo, Fahad Rahman, Kira Zoltan</a> 
-			</p>
+		<div class="main-content">		
+			{{{ body }}}
 		</div>
-	</div>
-</footer>
-
-<!-- Log in modal -->
-<div class="modal">
-  <div class="modal-background closeBtn"></div>
-  <div class="modal-card animated slideInDown">
-    <section class="modal-card-body is-centered loginModal animated slideInDown">
-		<button class="delete is-pulled-right closeBtn" aria-label="close"></button>
-		<form action="/login" method="POST">
-			{{#if message}}
-			<div class="notification is-danger"> {{message}} </div>
-			{{/if}}<br><br>
-			{{!--<div class="tabs loginField is-centered">
-				<ul>
-					<li id="loginlink" class="is-active"><a>Log in</a></li>
-					<li id="signuplink" ><a>Sign up</a></li>
-				</ul>
-			</div>--}}
-			<h1 id="modal-header" class="modal-card-title has-text-centered">Welcome! </h1> <br>
-			<div id="modal-username-div" class="field loginField">
-				<label class="label">Username</label>
-				<div class="control"> 
-					<input class="input" type="text" placeholder="Vege Tate" name='username'>
+		
+	<!-- Footer for Green Thumb -->
+		<footer class="footer">
+			<div class="container">
+				<div class="content has-text-centered">
+					<p>
+						<strong>Green Thumb</strong> a web application built by <a href="https://github.com/fbrahman/greenThumb">Cindy Chen, Nick Nociforo, Fahad Rahman, Kira Zoltan</a> 
+					</p>
 				</div>
 			</div>
-			<div id="modal-email-div" class="field loginField">
-				<label class="label">Email</label>
-				<div class="control"> 
-					<input class="input" type="email" placeholder="me@examples.com" name='email'>
-				</div>
-			</div>
-			<div id="modal-password-div" class="field loginField">
-				<label class="label">Password</label>
-				<div class="control">
-					<input class="input" type="password" placeholder="password" name='password'>
-				</div>
-			</div>
-			<div id="modal-password2-div" class="field loginField">
-				<label class="label">Confirm Password</label>
-				<div class="control">
-					<input class="input" type="password" placeholder="password" name='confirmPassword'>
-				</div>
-			</div><br>
-			<div class="loginField">
-			<button class="button is-success modalBtn is-fullwidth" type="submit" value="Sign up" id="signup-submit">Sign up</button>
-			<button class="button is-success modalBtn is-fullwidth" type="submit" value="Log in" id="login-submit">Log in</button>
+		</footer>
 
-			<p> Already a user? 
-				<a id="modal-switch"> Log in</a> 
-			</p>
-			</div><br><br><br>
-		</form>
-    </section>
-  </div>
-</div>
+	<!-- Log in modal -->
+		<div class="modal">
+			<div class="modal-background closeBtn"></div>
+			<div class="modal-card animated slideInDown">
+				<section class="modal-card-body is-centered loginModal animated slideInDown">
+					<button class="delete is-pulled-right closeBtn" aria-label="close"></button>
+					<form action="/login" method="POST">
+						{{#if message}}
+						<div class="notification is-danger"> {{message}} </div>
+						{{/if}}<br><br>
+						<h1 id="modal-header" class="modal-card-title has-text-centered">Welcome! </h1> <br>
+						<div id="modal-username-div" class="field loginField">
+							<label class="label">Username</label>
+							<div class="control"> 
+								<input class="input" type="text" placeholder="Vege Tate" name='username'>
+							</div>
+						</div>
+						<div id="modal-email-div" class="field loginField">
+							<label class="label">Email</label>
+							<div class="control"> 
+								<input class="input" type="email" placeholder="me@examples.com" name='email'>
+							</div>
+						</div>
+						<div id="modal-password-div" class="field loginField">
+							<label class="label">Password</label>
+							<div class="control">
+								<input class="input" type="password" placeholder="password" name='password'>
+							</div>
+						</div>
+						<div id="modal-password2-div" class="field loginField">
+							<label class="label">Confirm Password</label>
+							<div class="control">
+								<input class="input" type="password" placeholder="password" name='confirmPassword'>
+							</div>
+						</div><br>
+						<div class="loginField">
+						<button class="button is-success modalBtn is-fullwidth" type="submit" value="Sign up" id="signup-submit">Sign up</button>
+						<button class="button is-success modalBtn is-fullwidth" type="submit" value="Log in" id="login-submit">Log in</button>
 
+						<p> Already a user? 
+							<a id="modal-switch"> Log in</a> 
+						</p>
+						</div><br><br><br>
+					</form>
+				</section>
+			</div>
+		</div>
+
+	</body>
+</html>
 <script type="text/javascript" src="../assets/js/main.js"></script>
 

@@ -2,23 +2,19 @@
   <link rel="stylesheet" href="assets/css/style.css">
 {{/section}}
 
-
-
-<section class="hero is-fullheight">
-  <div class="hero-body" id="index">
-    <div class="column"></div>
-    <div class="column">
-      <div class="field indexfield">
-        <div class="control" id="box">
-          <form action="/search" method="GET">
-            <button class="button is-success is-medium" style="float: right">Go</button>
-            <div style="overflow: hidden; padding-right: .5em;">
-              <input class="input is-success is-medium" type="text" placeholder="What do you want to grow?" name="plantName">
-            </div>
-          </form>
+<section class="hero is-fullheight homeimg">
+		<div class="hero-body">
+			<div class="container">
+        <div class="column is-half is-offset-one-quarter">
+          <div class="field has-addons" id="box">
+            <form action="/search" method="GET">
+              <button class="button is-success is-medium is-pulled-right">Go</button>
+              <div class="is-clipped" style="padding-right: .5em;">
+                <input class="input is-success is-medium has-text-centered" type="text" placeholder="What do you want to grow?" name="plantName">
+              </div>
+            </form>
+          </div>
         </div>
-      </div>
-    </div>
-    <div class="column"></div>
-  </div>
+			</div>
+		</div>
 </section>
