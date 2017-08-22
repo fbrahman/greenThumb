@@ -24,6 +24,7 @@
 		$("#signup-submit").hide();
 		$("#login-submit").show();
 		$("#modal-switch").html("Sign up");
+		$("#signup-submit").removeAttr("formaction")
 		isSignup = false;
 	};
 
@@ -34,6 +35,7 @@
 		$("#login-submit").hide();
 		$("#signup-submit").show();
 		$("#modal-switch").html("Log in");
+		$("#signup-submit").attr("formaction","/registration")
 		isSignup = true;
 	};
 
